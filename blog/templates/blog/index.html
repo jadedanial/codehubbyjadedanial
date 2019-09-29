@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		@font-face{
+			font-family: raleway;
+			src: url({% static 'blog/fonts/raleway.ttf' %});
+		}
+		@font-face{
+			font-family: ralewaymedium;
+			src: url({% static 'blog/fonts/ralewaymedium.ttf' %});
+		}
+		@font-face{
+			font-family: lekton;
+			src: url({% static 'blog/fonts/lekton.ttf' %});
+		}
+	</style>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Code Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/prism.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/theme.css' %}">
+	<script type="text/javascript" src="{% static 'blog/js/prism.js' %}"></script>
+	<script type="text/javascript" src="{% static 'blog/js/script.js' %}"></script>
+	<link rel="shortcut icon" type="image/png" href="{% static 'blog/images/icon.png' %}">
+</head>
+<body>
+	<main>
+
+		<!--------------------------- home section -->
+		<section id="home">
+			<div id="navigation">
+				<div>
+					<div id="dropdownmenu">
+						<img src="{% static 'blog/images/menu.png' %}" alt="Menu" id="menuimg" onclick="showMenu()">
+						<div id="menuitems" class="menucontent">
+							<a href="javascript:scrollView(home)" id="homepagemenu" class="activepage">HOME</a>
+							<a href="javascript:scrollView(about)" id="aboutpagemenu" class="">ABOUT</a>
+							<a href="javascript:scrollView(projects)" id="projectspagemenu" class="">PROJECT</a>
+							<a href="javascript:scrollView(codinglog)" id="codinglogpagemenu" class="">CODING LOG</a>
+							<a href="javascript:scrollView(blog)" id="blogpagemenu" class="">POST</a>
+							<a href="javascript:scrollView(contact)" id="contactpagemenu" class="">CONTACT</a>
+						 </div>
+					</div>
+					<div id="menu">
+						<a href="javascript:scrollView(home)" id="homepage" class="activepage">HOME</a>
+						<a href="javascript:scrollView(about)" id="aboutpage" class="">ABOUT</a>
+						<a href="javascript:scrollView(projects)" id="projectspage" class="">PROJECT</a>
+						<a href="javascript:scrollView(codinglog)" id="codinglogpage" class="">CODING LOG</a>
+						<a href="javascript:scrollView(blog)" id="blogpage" class="">POST</a>
+						<a href="javascript:scrollView(contact)" id="contactpage" class="">CONTACT</a>
+					</div>
+				</div>
+				<div id="navlogo">
+					<a href="{% url 'home' %}#home"><img src="{% static 'blog/images/logo.png' %}" alt="Logo" id="navimg"></a>
+				</div>
+			</div>
+			<div id="header">
+				<div><img src="{% static 'blog/images/logo.png' %}" alt="Code Hub Logo" id="logoimg"></div>
+				<div><p>LEARN | CODE | INSPIRE | TEACH</p></div>
+			</div>
+			<div id="welcome">
+				<div>
+					<p>I am Jade Danial<br>Welcome to Code Hub blog!</p>
+				</div>
+				<div>
+					<p>A blog dedicated to people with programming passion. Here you will find posts about things I have learned, problems that I have solved in programming and projects that I developed.<br><br>Code Hub blog is my own personal wiki of learnings, failures, and successes about programming.</p>
+				</div>
+			</div>
+		</section>
+
+		<!--------------------------- about section -->
+		<section id="about">
+			<div class="pagetitle"><p>I'm a nice guy</p></div>
+			<div id="aboutmore">
+				{% block profile %}
+					{% for profile in profiles %}
+						{% if profile.user.username == "jadedanial" %}
+							<div id="aboutprofile">
+								<img src="{% static 'blog/media/user/' %}{{ profile.imagename }}" alt="{{ profile.user.first_name }}" id="profileimg">
+							</div>
+							<div id="abouttext">
+								<p>{{ profile.user.first_name }} {{ profile.user.last_name }} {{ profile.bio|safe }}</p>
+								<div id="skillsdiv">
+									{% for skill in profile.skill.all %}
+										<div class="skills"><img src="{% static 'blog/media/skill/' %}{{ skill.imagename }}" alt="{{ skill.name }}" class="skillimg"><p>{{ skill.name }}</p></div>
+									{% endfor %}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endblock profile %}
+			</div>
+		</section>
+
+		<!--------------------------- project section -->
+		<section id="projects">
+			<div class="pageintro">
+				<div><a class="smallprev" onclick="plusSlides(-1, 1)"></a></div>
+				<div class="pagetitle"><p>My apps</p></div>
+				<div><a class="smallnext" onclick="plusSlides(1, 1)"></a></div>
+			</div>
+			<div class="slidebody">
+				<div class="chevroncontainer">
+					<a class="bigprev" onclick="plusSlides(-1, 1)"></a>
+				</div>
+				<div>
+					{% block project %}
+						{% for project in projects %}
+							<div class="projectsslides">
+								<div class="byslide">
+									<div class="projectscontent">
+										<div>
+											<img src="{% static 'blog/media/project/' %}{{ project.imagename }}" alt="Project Image" class="projectimg">
+										</div>
+										<div>
+											<p>{{ project.title }}</p>
+											<div class="skillsused">
+												<span>
+													{% for skill in project.skill.all %}
+														<img src="{% static 'blog/media/skill/' %}{{ skill.imagename }}" alt="{{ skill.name }}" class="skillusedimg">
+													{% endfor %}
+												</span>
+											</div>
+											<p>{{ project.shortcontent }}</p>
+											<div class="pagemore">
+												<a href="{% url 'project' category=1 pk=project.pk slug=project.slug %}">Read more >></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					{% endblock project %}
+				</div>
+				<div class="chevroncontainer">
+					<a class="bignext" onclick="plusSlides(1, 1)"></a>
+				</div>
+			</div>
+		</section>
+
+		<!--------------------------- codinglog section -->
+		<section id="codinglog">
+			<div class="pageintro">
+				<div><a class="smallprev" onclick="plusSlides(-1, 2)"></a></div>
+				<div class="pagetitle"><p>Coding diary</p></div>
+				<div><a class="smallnext" onclick="plusSlides(1, 2)"></a></div>
+			</div>
+			<div class="slidebody">
+				<div class="chevroncontainer">
+					<a class="bigprev" onclick="plusSlides(-1, 2)"></a>
+				</div>
+				<div>
+					<script type="text/javascript">
+						var logcount = "{{ logs.count }}";
+						var logids = [];
+					</script>
+					{% block log %}
+						{% for log in logs %}
+							<div class="codinglogslides">
+								<div class="byslide">
+									<div class="codinglogcontent">
+										<div>
+											<p>{{ log.logdate|date:"d" }}</p>
+											<p>{{ log.logdate|date:"M Y" }}</p>
+										</div>
+										<div>
+											<p>{{ log.title }}</p>
+											<p>{{ log.content }}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						<script type="text/javascript">logids.push({{ log.id }});</script>
+						{% endfor %}
+					{% endblock log %}
+					<div id="previouslogs">
+						{% for log in featuredlogs %}
+							<a onclick="gotoLog(logcount, logids, {{ log.id }})">{{ log.title }}</a>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="chevroncontainer">
+					<a class="bignext" onclick="plusSlides(1, 2)"></a>
+				</div>
+			</div>
+		</section>
+
+		<!--------------------------- blog section -->
+		<section id="blog">
+			<div class="pageintro">
+				<div><a class="smallprev" onclick="plusSlides(-1, 3)"></a></div>
+				<div class="pagetitle"><p>My Posts</p></div>
+				<div><a class="smallnext" onclick="plusSlides(1, 3)"></a></div>
+			</div>
+			<div class="slidebody">
+				<div class="chevroncontainer">
+					<a class="bigprev" onclick="plusSlides(-1, 3)"></a>
+				</div>
+				<div id="blogcontents">
+					<div>
+						{% block post %}
+							{% for post in posts %}
+								<div class="blogslides">
+									<div class="byslide">
+										<div class="blogcontent">
+											<div class="pubdetails">
+												<div class="blogtitle"><p>{{ post.title }}</p></div>
+												<div class="pubinfo">
+													<span>
+														<img src="{% static 'blog/images/author.png' %}" alt="Author" width="15rem">
+														<p>{{ post.author.user.first_name }} {{ post.author.user.last_name }}</p>
+													</span>
+													<span>
+														<img src="{% static 'blog/images/calendar.png' %}" alt="Calendar" width="15rem">
+														<p>{{ post.dateposted|date:"m d, Y g:s A" }}</p>
+													</span>
+													<span>
+														<img src="{% static 'blog/images/comment.png' %}" alt="Comment" width="15rem">
+														{% if post.comments.count > 1 %}
+															<p>{{ post.comments.count }} comments</p>
+														{% else %}
+															<p>{{ post.comments.count }} comment</p>
+														{% endif %}
+													</span>
+													<span>
+														<img src="{% static 'blog/images/view.png' %}" alt="View" width="17rem">
+														{% for view in postviews %}
+															{% if view.post.id == post.id %}
+																{% if view.view > 1 %}
+																	<p>{{ view.view }} views</p>
+																{% else %}
+																	<p>{{ view.view }} view</p>
+																{% endif %}
+															{% endif %}
+														{% endfor %}
+													</span>
+												</div>
+											</div>
+											<br><br>
+											<div class="blogtext">
+												<p>{{ post.shortcontent }}</p>
+												<div class="pagemore">
+													<a href="{% url 'post' category=2 pk=post.pk slug=post.slug %}">Read more >></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						{% endblock post %}
+					</div>
+					<div id="postlist">
+						<p>Featured Posts</p>
+						{% for post in featuredposts %}
+							<a href="{% url 'post' category=2 pk=post.pk slug=post.slug %}"><span>{{ post.title }}</span></a>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="chevroncontainer">
+					<a class="bignext" onclick="plusSlides(1, 3)"></a>
+				</div>
+			</div>
+		</section>
+
+		<!--------------------------- contact section -->
+		<section id="contact">
+			<div class="pagetitle"><p>Get in touch with me</p></div>
+			<div id="contactcontent">
+				<div id="contactlist">
+					{% block social %}
+						{% for profile in profiles %}
+							{% if profile.user.username == "jadedanial" %}
+								{% for social in profile.social.all %}
+									<div class="socials">
+										<a href="{{ social.link }}" target="_blank">
+											<img src="{% static 'blog/media/social/' %}{{ social.imagename }}" alt="{{ social.name }}" class="socialimg">
+										</a>
+										<p>{{ social.name }}</p>
+									</div>
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					{% endblock social %}
+				</div>
+				<div id="footer">
+					<p>Code Hub Blog © {% now 'Y' %} Theme by Jade Danial</p>
+				</div>
+			</div>
+		</section>
+
+	</main>
+	<script>
+
+		var slideIndex = 1;
+		showSlides(slideIndex, 1);
+		showSlides(slideIndex, 2);
+		showSlides(slideIndex, 3);
+
+		window.onscroll = function() {onScroll()};
+
+		window.onclick = function(event){
+
+			if(!event.target.matches("#menuimg")){
+
+				var dropdowns = document.getElementsByClassName("menucontent");
+				var i;
+
+				for(i = 0; i < dropdowns.length; i++){
+
+					var openDropdown = dropdowns[i];
+
+					if(openDropdown.classList.contains("showmenu")){
+
+						openDropdown.classList.remove("showmenu");
+
+					}
+
+				}
+
+			}
+			
+		}
+
+	</script>
+</body>
+</html>

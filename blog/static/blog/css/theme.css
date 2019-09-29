@@ -1,0 +1,2061 @@
+/* Mobiles upto 479 maximum width (portrait) ----------- */
+body{
+    font-family: raleway;
+    color: rgb(255,255,255);
+    background-color: rgb(69,170,242);
+    padding: 0;
+    margin: 0;
+}
+
+#dropdownmenu{
+    display: inline;
+}
+
+#menuimg{
+    width: 2rem;
+    cursor: pointer;
+}
+
+.menucontent{
+    height: 11rem;
+    text-align: left;
+    padding: 0.3rem;
+    background-color: rgb(0,0,0);
+    animation: movedown 0.5s;
+    position: relative;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    display: none;
+}
+
+@keyframes movedown{
+    from { height: 0; }
+    to   { height: 11rem; }
+}
+
+.menucontent a{
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 0.3rem 0;
+    color: rgb(255,255,255);
+    display: block;
+}
+
+.menucontent a:link{
+    color: rgb(255,255,255);
+}
+
+.menucontent a:visited{
+    color: rgb(255,255,255);
+}
+
+.menucontent a:hover{
+    color: rgb(69,170,242);
+}
+
+.menucontent a:active{
+    color: rgb(69,170,242);
+}
+
+.showmenu{
+    display: block;
+}
+
+.readless{
+    display: none;
+}
+
+.readmore{
+    display: block;
+}
+
+.activepage{
+    border-bottom: 0 solid rgb(69,170,242);
+}
+
+#menu{
+    display: none;
+}
+
+#navigation{
+    background-color: rgb(0,0,0);
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+#navigation div:nth-child(1){
+    text-align: left;
+    padding: 0.6rem 0.3rem 0.3rem 0.3rem;
+}
+
+#menu > a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: rgb(255,255,255);
+    background-color: rgb(0,0,0);
+    padding: 1rem;
+    position: relative;
+    top: 15%;
+}
+
+#menu a:link{
+    color: rgb(255,255,255);
+}
+
+#menu a:visited{
+    color: rgb(255,255,255);
+}
+
+#menu a:hover{
+    color: rgb(69,170,242);
+}
+
+#menu a:active{
+    color: rgb(69,170,242);
+}
+
+#navlogo{
+    text-align: right;
+    padding: 0.2rem 0.3rem;
+}
+
+#navimg{
+    width: 2.8rem;
+}
+
+#home{
+    height: 50rem;
+    display: grid;
+    grid-template-rows: 35% 65%;
+}
+
+#header{
+    text-align: center;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+#logoimg{
+    width: 8rem;
+}
+
+#header img{
+    position: relative;
+    top: 40%;
+}
+
+#header p{
+    font-size: 1rem;
+    position: relative;
+    top: 0;
+}
+
+#welcome{
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+#welcome > div{
+    color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+}
+
+#welcome div:nth-child(1) p{
+    font-size: 1.5rem;
+    text-align: right;
+    margin: 0 2rem;
+    position: relative;
+    top: 40%;
+}
+
+#welcome div:nth-child(2) p{
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0 2rem;
+    position: relative;
+    top: 15%;
+}
+
+.pageintro{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+
+.pagetitle{
+    margin: 3rem 0;
+}
+
+.pagetitle p{
+    font-size: 1.6rem;
+    text-align: center;
+    color: rgb(0,0,0);
+}
+
+.slidebody{
+    display: grid;
+    grid-template-rows: 0% 100% 0%;
+}
+
+.smallprev{
+    width: 1rem;
+    height: 1rem;
+    border-right: 0.25rem solid rgba(255,255,255,1);
+    border-bottom: 0.25rem solid rgba(255,255,255,1);
+    position: relative;
+    top: 45%;
+    left: 60%;
+    display: inline-block;
+    transform: rotate(-225deg);
+    cursor: pointer;
+}
+
+.smallnext{
+    width: 1rem;
+    height: 1rem;
+    border-right: 0.25rem solid rgba(255,255,255,1);
+    border-bottom: 0.25rem solid rgba(255,255,255,1);
+    position: relative;
+    top: 45%;
+    left: 10%;
+    display: inline-block;
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+.bigprev{
+    width: 4rem;
+    height: 4rem;
+    border-right: 0.3rem solid rgba(255,255,255,0.3);
+    border-bottom: 0.3rem solid rgba(255,255,255,0.3);
+    position: relative;
+    left: 56%;
+    display: inline-block;
+    transform: rotate(-225deg);
+    cursor: pointer;
+}
+
+.bignext{
+    width: 4rem;
+    height: 4rem;
+    border-right: 0.3rem solid rgba(255,255,255,0.3);
+    border-bottom: 0.3rem solid rgba(255,255,255,0.3);
+    position: relative;
+    left: 5%;
+    display: inline-block;
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+.bigprev:hover, .bignext:hover{
+    border-right: 0.3rem solid rgba(255,255,255,1);
+    border-bottom: 0.3rem solid rgba(255,255,255,1);
+}
+
+.smallprev, .smallnext{
+    display: inline-block;
+}
+
+.bigprev, .bignext{
+    display: none;
+}
+
+.pagemore{
+    text-align: left;
+    padding: 1rem 2rem;
+}
+
+.pagemore a:first-child{
+    font-size: 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+    padding: 0.4rem;
+    margin: 0.4rem 0.4rem 0.4rem 0;
+    display: inline;
+    cursor: pointer;
+}
+
+.pagemore a:first-child:hover{
+    color: rgb(255,255,255);
+    background-color: rgb(0,0,0);
+}
+
+.pagemore a:nth-child(2){
+    font-size: 1.5rem;
+    margin: 0 0 0 2rem;
+}
+
+#about{
+    height: 65rem;
+    padding-bottom: 0rem;
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+#aboutpostdetail{
+    height: 50rem;
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+#aboutmore{
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+#aboutprofile{
+    text-align: center;
+}
+
+#profileimg, #profileimgpostdetail{
+    width: 10rem;
+    margin: 1rem;
+}
+
+#abouttext{
+    text-align: left;
+    margin: 0 2rem 3rem 2rem;
+}
+
+#abouttext p:nth-child(1){
+    font-size: 1.1rem;
+    position: relative;
+    top: 10%;
+}
+
+#abouttext div{
+    position: relative;
+    top: 10%;
+}
+
+#skillsdiv > div{
+    margin: 1rem 1rem 1rem 0;
+}
+
+.skills{
+    text-align: center;
+    display: inline-block;
+}
+
+.skills p{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.skillimg{
+    width: 2rem;
+}
+
+#projects{
+    height: 50rem;
+    padding-bottom: 5rem;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.projectscontent{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.projectscontent > div{
+    text-align: center;
+    display: block;
+}
+
+.projectimg{
+    width: 8rem;
+    margin: 5rem 0 0 0;
+}
+
+.projectdetailimg{
+    width: 15rem;
+    margin: 0;
+}
+
+.projectscontent div:nth-child(2) p:nth-child(1){
+    font-family: ralewaymedium;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem 0 2rem 0;
+}
+
+.skillsused{
+    text-align: center;
+    margin: 1rem 2rem;
+}
+
+.projectdetailskillsused{
+    text-align: center;
+    margin: 0.5rem 1rem;
+}
+
+.skillusedimg{
+    width: 1.5rem;
+    margin: 0 0 0 1rem;
+}
+
+.projectskillusedimg{
+    width: 1.5rem;
+    margin: 0.5rem;
+}
+
+.projectscontent div:nth-child(2) p{
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0 2rem;
+}
+
+#codinglog{
+    height: 50rem;
+    padding-bottom: 13rem;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.codinglogcontent{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.codinglogcontent > div{
+    text-align: center;
+    display: block;
+}
+
+.codinglogcontent div:nth-child(1) p:nth-child(1){
+    font-size: 7rem;
+    text-align: center;
+    margin: 2rem 0 0 0;
+}
+
+.codinglogcontent div:nth-child(1) p:nth-child(2){
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+.codinglogcontent div:nth-child(2) p:nth-child(1){
+    font-family: ralewaymedium;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+}
+
+.codinglogcontent div:nth-child(2) p:nth-child(2){
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 1.5rem 2rem;
+}
+
+#previouslogs{
+    text-align: left;
+    margin: 0.5rem 2rem;
+}
+
+#previouslogs a{
+    font-size: 0.8rem;   
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+    padding: 0.4rem;
+    margin: 0.4rem 0.4rem 0.4rem 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#previouslogs a:hover{
+    color: rgb(255,255,255);
+    background-color: rgb(0,0,0);
+}
+
+#blog{
+    height: 50rem;
+    padding-bottom: 10rem;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+#blogcontents{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.blogcontent > div{
+    text-align: left;
+    display: block;
+}
+
+.blogtitle p{
+    font-family: ralewaymedium;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 5rem 2rem 0 2rem;
+}
+
+.pubinfo, .postdetailpubinfo{
+    text-align: center;
+    margin: 0 2rem;
+}
+
+.pubinfo span, .postdetailpubinfo span{
+    margin: 0.1rem 0.5rem;
+    display: inline-block;
+}
+
+.pubinfo span p, .postdetailpubinfo span p{
+    font-size: 0.8rem;
+    margin: 0;
+    display: inline-block;
+}
+
+.pubby p, #postdetailauthor p{
+    font-size: 1rem;
+    margin: 0 2rem 1rem 2rem;
+}
+
+.blogtext p, #postdetailcontent p, pre{
+    font-size: 1.1rem;
+    margin: 0 2rem;
+}
+
+#postlist, #postdetaillist{
+    font-family: ralewaymedium;
+    text-align: left;
+    padding: 0 2rem 2rem 2rem;
+}
+
+#postlist p, #postdetaillist p{
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+
+#postlist a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: rgb(255,255,255);
+    padding: 0.2rem 0;
+    margin: 0;
+    display: block;
+    cursor: default;
+}
+
+#postlist span:hover, #postdetaillist span:hover{
+    color: rgb(0,0,0);
+    cursor: pointer;
+}
+
+#postdetaillist a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: rgb(255,255,255);
+    padding: 0.2rem 1rem 0.2rem 0;
+    margin: 0;
+    display: inline-block;
+    cursor: default;
+}
+
+#contact{
+    height: 30rem;
+    display: grid;
+    grid-template-rows: 35% 70%;
+}
+
+#contactcontent{
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+#contactlist{
+    text-align: center;
+    padding: 1rem 0 0 0;
+}
+
+.socials{
+    text-align: center;
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
+.socials p{
+    font-size: 0.8rem;
+    padding: 0;
+}
+
+.socialimg{
+    width: 2.3rem;
+    cursor: pointer;
+}
+
+#postdetailtitle{
+    text-align: center;
+    margin: 8rem 2rem 0 2rem;
+}
+
+#postdetailtitle p{
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+#postdetailbody{
+    text-align: left;
+    margin: 1rem 0 5rem 0;
+}
+
+#postdetailcontents{
+    margin: 3rem 0 2rem 0;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.addcomment{
+    margin: 5rem 2rem;
+}
+
+.authorcomment[type=text]{
+    font-size: 1.2rem;
+    font-family: raleway;
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    color: rgb(0,0,0);
+    background-color: rgba(255,255,255,0.3);
+    display: block;
+    border: 1.3px solid rgb(255,255,255);
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+}
+
+.textcomment{
+    font-size: 1.2rem;
+    font-family: raleway;
+    width: 100%;
+    height: 10rem;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    color: rgb(0,0,0);
+    background-color: rgba(255,255,255,0.3);
+    display: block;
+    border: 1.3px solid rgb(255,255,255);
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+}
+
+.submitcomment[type=button], input[type=submit], input[type=reset]{
+    font-size: 1rem;
+    font-family: raleway;
+    color: rgb(0,0,0);
+    background-color: rgb(255,255,255);
+    border: none;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.submitcomment:hover{
+    color: rgb(255,255,255);
+    background-color: rgb(0,0,0);
+}
+
+#comment{
+    margin: 3rem 2rem;
+    display: block;
+}
+
+#comment span{
+    font-size: 1.8rem;
+    font-family: ralewaymedium;
+}
+
+.blockquote{
+    margin: 2rem 0;
+}
+
+.commenttext{
+    font-size: 1rem;
+    font-family: ralewaymedium;
+    margin: 0;
+}
+
+.commentauthor{
+    font-size: 0.8rem;
+    margin: 0 0 0 1rem;
+}
+
+#footer{
+    text-align: center;
+    background-color: rgb(0,0,0);
+}
+
+#footer p{
+    font-size: 0.8rem;
+    position: relative;
+    top: 20%;
+}
+
+/* Mobiles 480 minimum width upto 767 maximum width (portrait) ----------- */
+@media only screen and (min-width : 480px){
+
+    #menuimg{
+        width: 3.1rem;
+    }
+
+    .menucontent{
+        height: 12.5rem;
+    }
+
+    @keyframes movedown{
+        from { height: 0; }
+        to   { height: 12.5rem; }
+    }
+
+    .menucontent a{
+        font-size: 1.2rem;
+    }
+
+    #navimg{
+        width: 4.1rem;
+    }
+
+    #home{
+        height: 60rem;
+        grid-template-rows: 50% 50%;
+    }
+
+    #logoimg{
+        width: 13rem;
+    }
+
+    #header p{
+        font-size: 1.5rem;
+    }
+
+    #welcome div:nth-child(1) p{
+        font-size: 1.8rem;
+        margin: 0 4rem;
+    }
+
+    #welcome div:nth-child(2) p{
+        font-size: 1.3rem;
+        margin: 0 4rem;
+    }
+
+    .pagetitle{
+        margin: 5rem 0;
+    }
+
+    .pagetitle p, #postdetailtitle p{
+        font-size: 2.3rem;
+    }
+
+    #postdetailtitle{
+        margin: 10rem 4rem 0 4rem;
+    }
+
+    .smallprev{
+        width: 2rem;
+        height: 2rem;
+        border-right: 0.40rem solid rgba(255,255,255,1);
+        border-bottom: 0.40rem solid rgba(255,255,255,1);
+    }
+
+    .smallnext{
+        width: 2rem;
+        height: 2rem;
+        border-right: 0.40rem solid rgba(255,255,255,1);
+        border-bottom: 0.40rem solid rgba(255,255,255,1);
+    }
+
+    .pagemore{
+        padding: 2rem 4rem;
+    }
+
+    .pagemore a:first-child{
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    #about{
+        height: 70rem;
+        padding-bottom: 6rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    #aboutpostdetail{
+        height: 60rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    #aboutmore{
+        grid-template-rows: 25% 75%;
+    }
+
+    #profileimg, #profileimgpostdetail{
+        width: 14rem;
+    }
+
+    #abouttext{
+        margin: 0 4rem 3rem 4rem;
+    }
+
+    #abouttext p:nth-child(1){
+        font-size: 1.3rem;
+    }
+
+    #skillsdiv > div{
+        margin: 1.2rem 1.2rem 1.2rem 0;
+    }
+
+    .skills p{
+        font-size: 0.9rem;
+    }
+
+    .skillimg{
+        width: 2.3rem;
+    }
+
+    #projects{
+        height: 70rem;
+        padding-bottom: 2rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    .projectimg{
+        width: 10rem;
+    }
+
+    .projectdetailimg{
+        width: 17rem;
+    }
+
+    .projectscontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.5rem;
+        margin: 2rem 0 4rem 0;
+    }
+
+    .skillsused{
+        margin: 1rem 4rem;
+    }
+
+    .skillusedimg{
+        width: 2rem;
+        margin: 0 0 0 1rem;
+    }
+
+    .projectskillusedimg{
+        width: 2rem;
+    }
+
+    .projectscontent div:nth-child(2) p{
+        font-size: 1.3rem;
+        margin: 0 4rem;
+    }
+
+    #codinglog{
+        height: 70rem;
+        padding-bottom: 5rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(1){
+        font-size: 8rem;
+        margin: 2rem 0 0 0;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(2){
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.5rem;
+        margin: 3rem 0 2rem 0;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(2){
+        font-size: 1.3rem;
+        margin: 1.5rem 4rem;
+    }
+
+    #previouslogs{
+        margin: 1rem 4rem;
+    }
+
+    #previouslogs a{
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin: 0.3rem 0.3rem 0.3rem 0;
+    }
+
+    #blog{
+        height: 70rem;
+        padding-bottom: 7rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    .blogtitle p{
+        font-size: 1.7rem;
+        margin: 5rem 4rem 0 4rem;
+    }
+
+    .pubinfo, .postdetailpubinfo{
+        margin: 0 4rem;
+    }
+
+    .pubinfo span, .postdetailpubinfo span{
+        margin: 0.1rem 0.3rem;
+        display: inline-block;
+    }
+
+    .pubinfo span p, .postdetailpubinfo span p{
+        font-size: 1rem;
+    }
+
+    .pubby p, #postdetailauthor p{
+        font-size: 1.2rem;
+        margin: 0 4rem 2rem 4rem;
+    }
+
+    .blogtext p, #postdetailcontent p, pre{
+        font-size: 1.3rem;
+        margin: 0 4rem;
+    }
+
+    #postlist, #postdetaillist{
+        padding: 0 4rem 4rem 4rem;
+    }
+
+    #postlist p, #postdetaillist p{
+        font-size: 1.5rem;
+        margin: 0.8rem 0;
+    }
+
+    #postlist a{
+        font-size: 1.2rem;
+        padding: 0.3rem 0;
+    }
+
+    #postdetaillist a{
+        font-size: 1.2rem;
+        padding: 0.3rem 1rem 0.3rem 0;
+    }
+
+    #contact{
+        height: 45rem;
+    }
+
+    #contactlist{
+        padding: 1rem 0 0 0;
+    }
+
+    .socials{
+        margin: 0 1.1rem;
+    }
+
+    .socials p{
+        font-size: 1rem;
+    }
+
+    .socialimg{
+        width: 3.5rem;
+    }
+
+    #comment{
+        margin: 3rem 4rem;
+    }
+
+    .addcomment{
+        margin: 5rem 4rem;
+    }
+
+    #footer p{
+        font-size: 1.2rem;
+    }
+
+}
+
+/* iPads/Tablets 768 minimum width upto 1024 max width (portrait) ----------- */
+@media only screen and (min-width : 768px){
+
+    #menuimg{
+        width: 3rem;
+    }
+
+    .menucontent a{
+        font-size: 1.3rem;
+    }
+
+    #navimg{
+        width: 4rem;
+    }
+
+    #logoimg{
+        width: 15rem;
+    }
+
+    #header p{
+        font-size: 1.8rem;
+    }
+
+    #welcome div:nth-child(1) p{
+        font-size: 2rem;
+    }
+
+    #welcome div:nth-child(2) p{
+        font-size: 1.3rem;
+    }
+
+    .pagetitle p, #postdetailtitle p{
+        font-size: 3rem;
+    }
+
+    .smallprev{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-right: 0.50rem solid rgba(255,255,255,1);
+        border-bottom: 0.50rem solid rgba(255,255,255,1);
+    }
+
+    .smallnext{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-right: 0.50rem solid rgba(255,255,255,1);
+        border-bottom: 0.50rem solid rgba(255,255,255,1);
+    }
+
+     .pagemore a:first-child{
+        font-size: 1.1rem;
+    }
+
+    #about{
+        grid-template-rows: 25% 75%;
+        padding-bottom: 10rem;
+    }
+
+    #aboutpostdetail{
+        height: 65rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    #aboutmore{
+        grid-template-rows: 30% 70%;
+    }
+
+    #profileimg, #profileimgpostdetail{
+        width: 18rem;
+    }
+
+    #abouttext p:nth-child(1){
+        font-size: 1.3rem;
+    }
+
+    #skillsdiv > div{
+        margin: 1.4rem 1.4rem 1.4rem 0;
+    }
+
+    .skills p{
+        font-size: 1.1rem;
+    }
+
+    .skillimg{
+        width: 2.8rem;
+    }
+    
+    #projects{
+        height: 80rem;
+        padding-bottom: 0rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .projectimg{
+        width: 15rem;
+    }
+
+    .projectdetailimg{
+        width: 22rem;
+    }
+
+    .projectscontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+    }
+
+    .skillsused{
+        margin: 2rem 4rem;
+    }
+
+    .skillusedimg{
+        width: 2.5rem;
+        margin: 0 0 0 2rem;
+    }
+
+    .projectskillusedimg{
+        width: 2.5rem;
+    }
+
+    .projectscontent div:nth-child(2) p{
+        font-size: 1.3rem;
+    }
+
+    #codinglog{
+        height: 80rem;
+        padding-bottom: 0rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(1){
+        font-size: 8rem;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(2){
+        font-size: 2.5rem;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(2){
+        font-size: 1.3rem;
+    }
+
+    #previouslogs a{
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    #blog{
+        height: 80rem;
+        padding-bottom: 5rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .blogtitle p{
+        font-size: 1.7rem;
+    }
+
+    .pubinfo span p, .postdetailpubinfo span p{
+        font-size: 1rem;
+    }
+
+    .pubby p, #postdetailauthor p{
+        font-size: 1.2rem;
+    }
+
+    .blogtext p, #postdetailcontent p, pre{
+        font-size: 1.3rem;
+    }
+
+    #postlist p, #postdetaillist p{
+        font-size: 1.5rem;
+    }
+
+    #postlist a, #postdetaillist a{
+        font-size: 1.2rem;
+    }
+
+    #contact{
+        height: 55rem;
+    }
+
+    #contactlist{
+        padding: 2rem 0 0 0;
+    }
+
+    .socials{
+        margin: 0 2rem;
+    }
+
+    .socials p{
+        font-size: 1.1rem;
+    }
+
+    .socialimg{
+        width: 5rem;
+    }
+
+    #footer p{
+        font-size: 1.3rem;
+    }
+
+}
+
+/* Netbooks 1024 minimum width and 680 maximum height ----------- */
+@media only screen and (min-width : 1024px) and (max-height : 680px){
+
+    #dropdownmenu{
+        display: none;
+    }
+
+    #menu{
+        display: inline;
+    }
+
+    #home{
+        height: 50rem;
+        grid-template-rows: 60% 40%;
+    }
+
+    #logoimg{
+        width: 11rem;
+    }
+
+    #header p{
+        font-size: 1.4rem;
+    }
+
+    #welcome{
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 100%;
+    }
+
+    #welcome div:nth-child(1) p{
+        margin: 0 2rem 0 4rem;
+        top: 30%;
+    }
+
+    #welcome div:nth-child(2) p{
+        margin: 0 4rem 0 2rem;
+        top: 20%;
+    }
+
+    .pagetitle{
+        margin: 3rem 0;
+    }
+
+    .pagetitle p, #postdetailtitle p{
+        font-size: 2.5rem;
+    }
+
+    #postdetailtitle{
+        text-align: left;
+    }
+
+    .slidebody{
+        padding: 4rem 0 0 0;
+        grid-template-columns: 15% 70% 15%;
+    }
+
+    .smallprev, .smallnext{
+        display: none;
+    }
+
+    .bigprev, .bignext{
+        margin: 5rem 0 0 0;
+        display: inline-block;
+    }
+
+    .pagemore{
+        padding: 1rem;
+    }
+
+    .pagemore a:first-child{
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    #about{
+        height: 50rem;
+        padding-bottom: 0rem;
+        grid-template-rows: 30% 70%;
+    }
+
+    #aboutpostdetail{
+        height: 30rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    #aboutmore{
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 100%;
+    }
+
+    #profileimg{
+        width: 15rem;
+        position: relative;
+        top: 6%;
+    }
+
+    #profileimgpostdetail{
+        width: 13rem;
+        position: relative;
+        top: 1%;
+    }
+
+    #abouttext{
+        margin: 0 4rem 3rem 1rem;
+    }
+
+    #abouttext p:nth-child(1){
+        font-size: 1.3rem;
+        top: 0;
+    }
+
+    #abouttext div{
+        top: 0;
+    }
+
+    #skillsdiv > div{
+        margin: 1rem 1rem 1rem 0;
+    }
+
+    .skills p{
+        font-size: 0.8rem;
+    }
+
+    .skillimg{
+        width: 2.3rem;
+    }
+
+    #projects{
+        height: 50rem;
+        padding-bottom: 2rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .projectscontent{
+        grid-template-columns: 35% 65%;
+    }
+
+    .projectimg{
+        width: 13rem;
+        margin: 5rem 0 0 0;
+    }
+
+    .projectdetailimg{
+        width: 20rem;
+    }
+
+    .projectscontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 0 2rem 1rem;
+    }
+
+    .skillsused{
+        text-align: left;
+        margin: 1rem 0;
+    }
+
+    .projectdetailskillsused{
+        margin: 0.5rem 4rem;
+    }
+
+    .skillusedimg{
+        width: 2rem;
+        margin: 0 0 0 1.5rem;
+    }
+
+    .projectskillusedimg{
+        width: 2rem;
+    }
+
+    .projectscontent div:nth-child(2) p{
+        font-size: 1.3rem;
+        margin: 1rem 2rem 1rem 1rem;
+    }
+
+    #codinglog{
+        height: 50rem;
+        padding-bottom: 7rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .codinglogcontent{
+        grid-template-columns: 35% 65%;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(1){
+        font-size: 8rem;
+        text-align: center;
+        margin:0;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(2){
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 0;
+    }   
+
+    .codinglogcontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 0 1rem 1rem;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(2){
+        font-size: 1.3rem;
+        text-align: left;
+        margin: 1.5rem 1rem;
+    }
+
+    #previouslogs{
+        text-align: center;
+        margin: 2rem 1rem;
+    }
+
+    #previouslogs a{
+        font-size: 1.1rem;   
+    }
+
+    #blog{
+        height: 50rem;
+        padding-bottom: 5rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    #blogcontents{
+        grid-template-columns: 60% 40%;
+    }
+
+    .blogtitle p{
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 1rem;
+    }
+
+    .pubinfo{
+        text-align: left;
+        margin: 0 1rem;
+    }
+
+    .postdetailpubinfo{
+        text-align: left;
+        margin: 0 4rem;
+    }
+
+    .pubinfo span p, .postdetailpubinfo span p{
+        font-size: 1rem;
+    }
+
+    .pubby p{
+        font-size: 1.2rem;
+        margin: 0 1rem;
+    }
+
+    .blogtext p{
+        font-size: 1.3rem;
+        margin: 2rem 1rem 1rem 1rem;
+    }
+
+    #postlist{
+        text-align: right;
+        padding: 0 1rem 2rem 1rem;
+    }
+
+    #postlist p{
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+    }
+
+    #postlist a{
+        font-size: 1.2rem;
+    }
+
+    #contact{
+        height: 30rem;
+    }
+
+    #contactlist{
+        padding: 1rem 0 0 0;
+    }
+
+    .socials{
+        margin: 0 1.1rem;
+    }
+
+    .socials p{
+        font-size: 1.3rem;
+    }
+
+    .socialimg{
+        width: 3.5rem;
+    }
+
+    .#postdetaildate p{
+        font-size: 1.2rem;
+    }
+
+    .#postdetailauthor p{
+        font-size: 1.2rem;
+    }
+
+    #postdetailcontent p, pre{
+        font-size: 1.3rem;
+    }
+
+    #postdetaillist{
+        text-align: right;
+    }
+
+    #postdetaillist p{
+        font-size: 1.5rem;
+    }
+
+    #postdetaillist a{
+        font-size: 1.2rem;
+        padding: 0.3rem 0;
+        display: block;
+    }
+
+    #postdetailcontents{
+        grid-template-columns: 70% 30%;
+    }
+
+     #footer p{
+        font-size: 1rem;
+    }
+
+}
+
+/* Notebooks 1024 minimum width and 681 minimum height upto 1365 maximum height ----------- */
+@media only screen and (min-width : 1024px) and (min-height : 681px) and (max-height : 1365px){
+
+    #dropdownmenu{
+        display: none;
+    }
+
+    #menu{
+        display: inline;
+    }
+
+    #home{
+        height: 50rem;
+        grid-template-rows: 60% 40%;
+    }
+
+    #logoimg{
+        width: 14rem;
+    }
+
+    #header p{
+        font-size: 1.7rem;
+    }
+
+    #welcome{
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 100%;
+    }
+
+    #welcome div:nth-child(1) p{
+        margin: 0 2rem 0 4rem;
+        top: 30%;
+    }
+
+    #welcome div:nth-child(2) p{
+        margin: 0 4rem 0 2rem;
+        top: 20%;
+    }
+
+    .pagetitle{
+        margin: 3rem 0;
+    }
+
+    .pagetitle p, #postdetailtitle p{
+        font-size: 2.5rem;
+    }
+
+    #postdetailtitle{
+        text-align: left;
+    }
+
+    .slidebody{
+        padding: 4rem 0 0 0;
+        grid-template-columns: 15% 70% 15%;
+    }
+
+    .smallprev, .smallnext{
+        display: none;
+    }
+
+    .bigprev, .bignext{
+        margin: 5rem 0 0 0;
+        display: inline-block;
+    }
+
+    .pagemore{
+        padding: 1rem;
+    }
+
+    .pagemore a:first-child{
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    #about{
+        height: 50rem;
+        padding-bottom: 0rem;
+        grid-template-rows: 30% 70%;
+    }
+
+    #aboutpostdetail{
+        height: 30rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    #aboutmore{
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 100%;
+    }
+
+    #profileimg{
+        width: 15rem;
+        position: relative;
+        top: 3%;
+        left: 10%;
+    }
+
+    #profileimgpostdetail{
+        width: 13rem;
+        position: relative;
+        top: 1%;
+    }
+
+    #abouttext{
+        margin: 0 6rem 3rem 1rem;
+    }
+
+    #abouttext p:nth-child(1){
+        font-size: 1.3rem;
+        top: 0;
+    }
+
+    #abouttext div{
+        top: 0;
+    }
+
+    #skillsdiv > div{
+        margin: 1rem 1rem 1rem 0;
+    }
+
+    .skills p{
+        font-size: 0.8rem;
+    }
+
+    .skillimg{
+        width: 2.3rem;
+    }
+
+    #projects{
+        height: 50rem;
+        padding-bottom: 2rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .projectscontent{
+        grid-template-columns: 35% 65%;
+    }
+
+    .projectimg{
+        width: 13rem;
+        margin: 5rem 0 0 0;
+    }
+
+    .projectdetailimg{
+        width: 20rem;
+    }
+
+    .projectscontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 0 2rem 1rem;
+    }
+
+    .skillsused{
+        text-align: left;
+        margin: 1rem 0;
+    }
+
+    .projectdetailskillsused{
+        margin: 0.5rem 4rem;
+    }
+
+    .skillusedimg{
+        width: 2rem;
+        margin: 0 0 0 1.5rem;
+    }
+
+    .projectskillusedimg{
+        width: 2rem;
+    }
+
+    .projectscontent div:nth-child(2) p{
+        font-size: 1.3rem;
+        margin: 1rem 2rem 1rem 1rem;
+    }
+
+    #codinglog{
+        height: 50rem;
+        padding-bottom: 7rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    .codinglogcontent{
+        grid-template-columns: 35% 65%;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(1){
+        font-size: 8rem;
+        text-align: center;
+        margin:0;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(2){
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 0;
+    }   
+
+    .codinglogcontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 0 1rem 1rem;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(2){
+        font-size: 1.3rem;
+        text-align: left;
+        margin: 1.5rem 1rem;
+    }
+
+    #previouslogs{
+        text-align: center;
+        margin: 2rem 1rem;
+    }
+
+    #previouslogs a{
+        font-size: 1.1rem;   
+    }
+
+    #blog{
+        height: 50rem;
+        padding-bottom: 5rem;
+        grid-template-rows: 20% 80%;
+    }
+
+    #blogcontents{
+        grid-template-columns: 60% 40%;
+    }
+
+    .blogtitle p{
+        font-size: 1.7rem;
+        text-align: left;
+        margin: 0 1rem;
+    }
+
+    .pubinfo{
+        text-align: left;
+        margin: 0 1rem;
+    }
+
+    .postdetailpubinfo{
+        text-align: left;
+        margin: 0 4rem;
+    }
+
+    .pubinfo span p, .postdetailpubinfo span p{
+        font-size: 1rem;
+    }
+
+    .pubby p{
+        font-size: 1.2rem;
+        margin: 0 1rem;
+    }
+
+    .blogtext p{
+        font-size: 1.3rem;
+        margin: 2rem 1rem 1rem 1rem;
+    }
+
+    #postlist{
+        text-align: right;
+        padding: 0 1rem 2rem 1rem;
+    }  
+
+    #postlist p{
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+    }
+
+    #postlist a{
+        font-size: 1.2rem;
+    }
+
+    #contact{
+        height: 40rem;
+    }
+
+    #contactlist{
+        padding: 1rem 0 0 0;
+    }
+
+    .socials{
+        margin: 0 1.1rem;
+    }
+
+    .socials p{
+        font-size: 1.3rem;
+    }
+
+    .socialimg{
+        width: 3.5rem;
+    }
+
+    .#postdetaildate p{
+        font-size: 1.2rem;
+    }
+
+    .#postdetailauthor p{
+        font-size: 1.2rem;
+    }
+
+    #postdetailcontent p, pre{
+        font-size: 1.3rem;
+    }
+
+    #postdetaillist{
+        text-align: right;
+    }
+
+    #postdetaillist p{
+        font-size: 1.5rem;
+    }
+
+    #postdetaillist a{
+        font-size: 1.2rem;
+        padding: 0.3rem 0;
+        display: block;
+    }
+
+    #postdetailcontents{
+        grid-template-columns: 70% 30%;
+    }
+
+     #footer p{
+        font-size: 1rem;
+    }
+
+}
+
+/* Desktops 1367 minimum width ----------- */
+@media only screen and (min-width : 1367px){
+
+    #menu > a{
+        font-size: 1.2rem;
+    }
+
+    #navimg{
+        width: 3.5rem;
+    }
+
+    #home{
+        height: 60rem;
+    }
+
+    #logoimg{
+        width: 18rem;
+    }
+
+    #header p{
+        font-size: 2rem;
+    }
+
+    #welcome div:nth-child(1) p{
+        font-size: 2rem;
+    }
+
+    #welcome div:nth-child(2) p{
+        font-size: 1.3rem;
+    }
+
+    .pagetitle{
+        margin: 5rem 0;
+    }
+
+    .pagetitle p, #postdetailtitle p{
+        font-size: 3.5rem;
+    }
+
+    .slidebody{
+        padding: 6rem 0 0 0;
+    }
+
+    .pagemore a:first-child{
+        font-size: 1.1rem;
+    }
+
+    #about{
+        height: 55rem;
+        padding-bottom: 0rem;
+        grid-template-rows: 40% 60%;
+    }
+
+    #aboutpostdetail{
+        height: 30rem;
+        grid-template-rows: 15% 85%;
+    }
+
+    #profileimg{
+        width: 15rem;
+    }
+
+    #profileimgpostdetail{
+        width: 12rem;
+        position: relative;
+        left: 15%;
+    }
+
+    #abouttext p:nth-child(1){
+        font-size: 1.3rem;
+    }
+
+    .skills p{
+        font-size: 1.1rem;
+    }
+
+    .skillimg{
+        width: 3rem;
+    }
+
+    #projects{
+        height: 55rem;
+        padding-bottom: 2rem;
+        grid-template-rows: 30% 70%;
+    }
+
+    .projectimg{
+        width: 17rem;
+        margin: 3rem 0 0 0;
+    }
+
+    .projectdetailimg{
+        width: 24rem;
+    }
+
+    .projectscontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+    }
+
+    .skillusedimg{
+        width: 2.5rem;
+    }
+
+    .projectskillusedimg{
+        width: 2.5rem;
+    }
+
+    .projectscontent div:nth-child(2) p{
+        font-size: 1.3rem;
+    }
+
+    #codinglog{
+        height: 55rem;
+        padding-bottom: 3rem;
+        grid-template-rows: 30% 70%;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(1){
+        font-size: 8rem;
+    }
+
+    .codinglogcontent div:nth-child(1) p:nth-child(2){
+        font-size: 2.5rem;
+    }   
+
+    .codinglogcontent div:nth-child(2) p:nth-child(1){
+        font-size: 1.7rem;
+    }
+
+    .codinglogcontent div:nth-child(2) p:nth-child(2){
+        font-size: 1.3rem;
+    }
+
+    #previouslogs a{
+        font-size: 1.1rem;   
+    }
+
+    #blog{
+        height: 55rem;
+        padding-bottom: 3rem;
+        grid-template-rows: 30% 70%;
+    }
+
+    .blogtitle p{
+        font-size: 1.7rem;
+    }
+
+    .pubinfo span p, .postdetailpubinfo span p{
+        font-size: 1rem;
+    }
+
+    .pubby p, #postdetailauthor p{
+        font-size: 1.2rem;
+    }
+
+    .blogtext p, #postdetailcontent p, pre{
+        font-size: 1.3rem;
+    }
+
+    #postlist p, #postdetaillist p{
+        font-size: 1.5rem;
+    }
+
+    #postlist a, #postdetaillist a{
+        font-size: 1.2rem;
+    }
+
+    #postdetaillist a{
+        padding: 0.3rem 0;
+        display: block;
+    }
+
+    #contact{
+        height: 45rem;
+    }
+
+    #contactlist{
+        padding: 1.5rem 0 0 0;
+    }
+
+    .socials p{
+        font-size: 1.3rem;
+    }
+
+    .socialimg{
+        width: 4rem;
+    }
+
+    #footer p{
+        font-size: 1.3rem;
+    }
+
+}
+
+/* Desktops 1680 minimum width ----------- */
+@media only screen and (min-width : 1680px){
+
+    #home{
+        height: 70rem;
+    }
+
+    #about, #projects, #codinglog, #blog{
+        height: 65rem;
+    }
+
+    #contact{
+        height: 58rem;
+    }
+
+}
