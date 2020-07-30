@@ -71,12 +71,8 @@
 						<p>{{ subject.dateposted|date:"m d, Y g:s A" }}</p>
 					</span>
 					<span>
-						<img src="{% static 'blog/images/comment.png' %}" alt="Comment" width="15rem">
-						{% if subject.comments.count > 1 %}
-							<p>{{ subject.comments.count }} comments</p>
-						{% else %}
-							<p>{{ subject.comments.count }} comment</p>
-						{% endif %}
+						<img src="{% static 'blog/images/feedback.png' %}" alt="Feedback" width="15rem">
+						<p>{{ approvedcounts }} feedback{{ approvedcounts|pluralize }}</p>
 					</span>
 					<span>
 						<img src="{% static 'blog/images/view.png' %}" alt="View" width="17rem">
@@ -110,20 +106,22 @@
 							<p>{{ subject.longcontent|safe }}</p>
 						</div>
 						<br><br>
-						<form method="post" class="addcomment">
+						<form method="post" class="addfeedback">
 							{% csrf_token %}
-							{{ commentform.as_p }}
-							<input type="submit" value="Submit Comment" class="submitcomment">
+							{{ feedbackform.as_p }}
+							<input type="submit" value="Submit Feedback" class="submitfeedback">
 						</form>
-						<div id="comment">
-							<span>{{ comments.count }} Comment{{ comments|pluralize }}</span>
-							{% for comment in comments %}
-								<blockquote class="blockquote">
-	  								<p class="commenttext">{{ comment.text }}</p>
-	  								<footer>
-	  									<p class="commentauthor"><cite>- {{ comment.guest|capfirst }} on {{ comment.datecreated|date:"F d, Y g:s A" }}</cite></p>
-	  								</footer>
-								</blockquote>
+						<div id="feedback">
+							<span>{{ approvedcounts }} Feedback{{ approvedcounts|pluralize }}</span>
+							{% for feedback in feedbacks %}
+								{% if feedback.approved == True %}
+									<blockquote class="blockquote">
+	  									<p class="feedbacktext">{{ feedback.text }}</p>
+	  									<footer>
+	  										<p class="feedbackauthor"><cite>- {{ feedback.guest|capfirst }} on {{ feedback.datecreated|date:"F d, Y g:s A" }}</cite></p>
+	  									</footer>
+									</blockquote>
+								{% endif %}
 							{% endfor %}
 						</div>
 					</div>

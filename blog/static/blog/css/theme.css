@@ -616,11 +616,11 @@ body{
     grid-template-columns: 100%;
 }
 
-.addcomment{
+.addfeedback{
     margin: 5rem 2rem;
 }
 
-.authorcomment[type=text]{
+.authorfeedback[type=text]{
     font-size: 1.2rem;
     font-family: raleway;
     width: 100%;
@@ -634,7 +634,7 @@ body{
     box-sizing: border-box;
 }
 
-.textcomment{
+.textfeedback{
     font-size: 1.2rem;
     font-family: raleway;
     width: 100%;
@@ -649,7 +649,7 @@ body{
     box-sizing: border-box;
 }
 
-.submitcomment[type=button], input[type=submit], input[type=reset]{
+.submitfeedback[type=button], input[type=submit], input[type=reset]{
     font-size: 1rem;
     font-family: raleway;
     color: rgb(0,0,0);
@@ -661,17 +661,17 @@ body{
     cursor: pointer;
 }
 
-.submitcomment:hover{
+.submitfeedback:hover{
     color: rgb(255,255,255);
     background-color: rgb(0,0,0);
 }
 
-#comment{
+#feedback{
     margin: 3rem 2rem;
     display: block;
 }
 
-#comment span{
+#feedback span{
     font-size: 1.8rem;
     font-family: ralewaymedium;
 }
@@ -680,13 +680,13 @@ body{
     margin: 2rem 0;
 }
 
-.commenttext{
+.feedbacktext{
     font-size: 1rem;
     font-family: ralewaymedium;
     margin: 0;
 }
 
-.commentauthor{
+.feedbackauthor{
     font-size: 0.8rem;
     margin: 0 0 0 1rem;
 }
@@ -970,11 +970,11 @@ body{
         width: 3.5rem;
     }
 
-    #comment{
+    #feedback{
         margin: 3rem 4rem;
     }
 
-    .addcomment{
+    .addfeedback{
         margin: 5rem 4rem;
     }
 

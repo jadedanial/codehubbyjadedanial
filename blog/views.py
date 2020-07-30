@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.utils import timezone
-from .models import Skill, Social, Profile, Project, ProjectView, ProjectComment, Log, Post, PostView, PostComment, SessionIPUrlKey
+from .models import Skill, Social, Profile, Project, ProjectView, ProjectFeedback, Log, Post, PostView, PostFeedback, SessionIPUrlKey
 from .forms import *
 from django.db.models import F
 
@@ -19,7 +19,6 @@ def home(request):
 
 		logstart = 0
 		logend = 0
-
 
 	postcounts = Post.objects.all().count()
 
@@ -40,11 +39,11 @@ def home(request):
 		'profiles': Profile.objects.all(),
 		'projects': Project.objects.all(),
 		'projectviews': ProjectView.objects.all(),
-		'projectcomments': ProjectComment.objects.all(),
+		'projectfeedbacks': ProjectFeedback.objects.all(),
 		'logs': Log.objects.all().order_by('-logdate'),
 		'posts': Post.objects.all().order_by('-dateposted'),
 		'postviews': PostView.objects.all(),
-		'postcomments': PostComment.objects.all(),
+		'postfeedbacks': PostFeedback.objects.all(),
 		'featuredlogs': Log.objects.all().order_by('logdate')[logstart:logend],
 		'featuredposts': Post.objects.all().order_by('dateposted')[poststart:postend]
 	}
@@ -105,25 +104,27 @@ def projectdetail(request, category, pk, slug):
 	SessionIPUrl = getSession(request) + getIP(request) + request.build_absolute_uri()
 
 	project = get_object_or_404(Project, pk=pk)
-	projectcomment = ProjectComment.objects.filter(project=project).order_by('-pk')
+	projectfeedback = ProjectFeedback.objects.filter(project=project).order_by('-pk')
 
 	if request.method == 'POST':
 
-		projectcommentform = ProjectCommentForm(request.POST or None)
+		projectfeedbackform = ProjectFeedbackForm(request.POST or None)
 
-		if projectcommentform.is_valid():
+		if projectfeedbackform.is_valid():
 
 			guest = request.POST.get('guest')
 			text = request.POST.get('text')
 
-			projectComment = ProjectComment.objects.create(project=project, guest=guest, text=text)
-			projectComment.save()
+			projectFeedback = ProjectFeedback.objects.create(project=project, guest=guest, text=text)
+			projectFeedback.save()
 
-			return HttpResponseRedirect(request.path_info + '#comment')
+			return HttpResponseRedirect(request.path_info + '#feedback')
 
 	else:
 
-		projectcommentform = ProjectCommentForm()
+		projectfeedbackform = ProjectFeedbackForm()
+
+	approvedCount = ProjectFeedback.objects.filter(project=project, approved=True).count()
 
 	if(SessionIPUrlKey.objects.filter(sessionipurlkey=SessionIPUrl).count() <= 0):
 
@@ -141,8 +142,9 @@ def projectdetail(request, category, pk, slug):
 
 	context = {
 		'subject': project,
-		'comments': projectcomment,
-		'commentform': projectcommentform,
+		'feedbacks': projectfeedback,
+		'feedbackform': projectfeedbackform,
+		'approvedcounts': approvedCount,
 		'profiles': Profile.objects.all(),
 		'views': ProjectView.objects.all(),
 		'allcontents': Project.objects.all().order_by('title'),
@@ -156,25 +158,27 @@ def postdetail(request, category, pk, slug):
 	SessionIPUrl = getSession(request) + getIP(request) + request.build_absolute_uri()
 
 	post = get_object_or_404(Post, pk=pk)
-	postcomment = PostComment.objects.filter(post=post).order_by('-pk')
+	postfeedback = PostFeedback.objects.filter(post=post).order_by('-pk')
 
 	if request.method == 'POST':
 
-		postcommentform = PostCommentForm(request.POST or None)
+		postfeedbackform = PostFeedbackForm(request.POST or None)
 
-		if postcommentform.is_valid():
+		if postfeedbackform.is_valid():
 
 			guest = request.POST.get('guest')
 			text = request.POST.get('text')
 
-			postComment = PostComment.objects.create(post=post, guest=guest, text=text)
-			postComment.save()
+			postFeedback = PostFeedback.objects.create(post=post, guest=guest, text=text)
+			postFeedback.save()
 
-			return HttpResponseRedirect(request.path_info + '#comment')
+			return HttpResponseRedirect(request.path_info + '#feedback')
 
 	else:
 
-		postcommentform = PostCommentForm()
+		postfeedbackform = PostFeedbackForm()
+
+	approvedCount = PostFeedback.objects.filter(post=post, approved=True).count()
 
 	if(SessionIPUrlKey.objects.filter(sessionipurlkey=SessionIPUrl).count() <= 0):
 
@@ -192,8 +196,9 @@ def postdetail(request, category, pk, slug):
 
 	context = {
 		'subject': post,
-		'comments': postcomment,
-		'commentform': postcommentform,
+		'feedbacks': postfeedback,
+		'feedbackform': postfeedbackform,
+		'approvedcounts': approvedCount,
 		'profiles': Profile.objects.all(),
 		'views': PostView.objects.all(),
 		'allcontents': Post.objects.all().order_by('dateposted'),

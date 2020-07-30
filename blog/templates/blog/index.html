@@ -216,14 +216,6 @@
 														<p>{{ post.dateposted|date:"m d, Y g:s A" }}</p>
 													</span>
 													<span>
-														<img src="{% static 'blog/images/comment.png' %}" alt="Comment" width="15rem">
-														{% if post.comments.count > 1 %}
-															<p>{{ post.comments.count }} comments</p>
-														{% else %}
-															<p>{{ post.comments.count }} comment</p>
-														{% endif %}
-													</span>
-													<span>
 														<img src="{% static 'blog/images/view.png' %}" alt="View" width="17rem">
 														{% for view in postviews %}
 															{% if view.post.id == post.id %}

@@ -75,6 +75,18 @@ class ProjectComment(models.Model):
 		
 		return self.text
 
+class ProjectFeedback(models.Model):
+
+	project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='feedbacks')
+	guest = models.CharField(max_length=30)
+	text = models.TextField(max_length=300)
+	datecreated = models.DateTimeField(auto_now_add=True)
+	approved = models.BooleanField(default=False)
+
+	def __str__(self):
+		
+		return self.text
+
 class Log(models.Model):
 
 	logdate = models.DateTimeField(default=timezone.now)
@@ -118,6 +130,18 @@ class PostComment(models.Model):
 	guest = models.CharField(max_length=30)
 	text = models.TextField(max_length=300)
 	datecreated = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		
+		return self.text
+
+class PostFeedback(models.Model):
+
+	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='feedbacks')
+	guest = models.CharField(max_length=30)
+	text = models.TextField(max_length=300)
+	datecreated = models.DateTimeField(auto_now_add=True)
+	approved = models.BooleanField(default=False)
 
 	def __str__(self):
 		

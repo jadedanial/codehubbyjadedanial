@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skill, Social, Profile, Project, ProjectView, ProjectComment, Log, Post, PostView, PostComment, SessionIPUrlKey
+from .models import Skill, Social, Profile, Project, ProjectView, ProjectFeedback, Log, Post, PostView, PostFeedback, SessionIPUrlKey
 
 class SkillAdmin(admin.ModelAdmin):
 	
@@ -31,11 +31,11 @@ class ProjectViewAdmin(admin.ModelAdmin):
 	list_filter = ('project', 'view')
 	search_fields = ('project', 'view')
 
-class ProjectCommentAdmin(admin.ModelAdmin):
+class ProjectFeedbackAdmin(admin.ModelAdmin):
 
-	list_display = ('project', 'guest', 'text', 'datecreated')
-	list_filter = ('project', 'guest', 'text', 'datecreated')
-	search_fields = ('project', 'guest', 'text', 'datecreated')
+	list_display = ('project', 'guest', 'text', 'datecreated', 'approved')
+	list_filter = ('project', 'guest', 'text', 'datecreated', 'approved')
+	search_fields = ('project', 'guest', 'text', 'datecreated', 'approved')
 
 class LogAdmin(admin.ModelAdmin):
 
@@ -55,11 +55,11 @@ class PostViewAdmin(admin.ModelAdmin):
 	list_filter = ('post', 'view')
 	search_fields = ('post', 'view')
 
-class PostCommentAdmin(admin.ModelAdmin):
+class PostFeedbackAdmin(admin.ModelAdmin):
 
-	list_display = ('post', 'guest', 'text', 'datecreated')
-	list_filter = ('post', 'guest', 'text', 'datecreated')
-	search_fields = ('post', 'guest', 'text', 'datecreated')
+	list_display = ('post', 'guest', 'text', 'datecreated', 'approved')
+	list_filter = ('post', 'guest', 'text', 'datecreated', 'approved')
+	search_fields = ('post', 'guest', 'text', 'datecreated', 'approved')
 
 class SessionIPUrlKeyAdmin(admin.ModelAdmin):
 
@@ -72,9 +72,9 @@ admin.site.register(Social, SocialAdmin)
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProjectView, ProjectViewAdmin)
-admin.site.register(ProjectComment, ProjectCommentAdmin)
+admin.site.register(ProjectFeedback, ProjectFeedbackAdmin)
 admin.site.register(Log, LogAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostView, PostViewAdmin)
-admin.site.register(PostComment, PostCommentAdmin)
+admin.site.register(PostFeedback, PostFeedbackAdmin)
 admin.site.register(SessionIPUrlKey, SessionIPUrlKeyAdmin)
