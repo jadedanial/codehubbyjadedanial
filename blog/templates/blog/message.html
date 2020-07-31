@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		@font-face{
+			font-family: raleway;
+			src: url({% static 'blog/fonts/raleway.ttf' %});
+		}
+		@font-face{
+			font-family: ralewaymedium;
+			src: url({% static 'blog/fonts/ralewaymedium.ttf' %});
+		}
+		@font-face{
+			font-family: lekton;
+			src: url({% static 'blog/fonts/lekton.ttf' %});
+		}
+	</style>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Code Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/prism.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/theme.css' %}">
+	<script type="text/javascript" src="{% static 'blog/js/prism.js' %}"></script>
+	<script type="text/javascript" src="{% static 'blog/js/script.js' %}"></script>
+	<link rel="shortcut icon" type="image/png" href="{% static 'blog/images/icon.png' %}">
+</head>
+<body style="background-color: rgb(69,170,242);">
+	<main>
+
+		<!--------------------------- header -->
+		<div id="navigation" style="padding-bottom: 0.3rem;">
+			<div style="font-family: raleway;">
+				<div id="dropdownmenu">
+					<img src="{% static 'blog/images/menu.png' %}" alt="Menu" id="menuimg" onclick="showMenu()">
+					<div id="menuitems" class="menucontent">
+						<a href="{% url 'home' %}#home" id="homepagemenu" class="activepage">HOME</a>
+						<a href="{% url 'home' %}#about" id="aboutpagemenu" class="">ABOUT</a>
+						<a href="{% url 'home' %}#projects" id="projectspagemenu" class="">PROJECT</a>
+						<a href="{% url 'home' %}#codinglog" id="codinglogpagemenu" class="">CODING LOG</a>
+						<a href="{% url 'home' %}#blog" id="blogpagemenu" class="">POST</a>
+						<a href="{% url 'home' %}#contact" id="contactpagemenu" class="">CONTACT</a>
+					 </div>
+				</div>
+				<div id="menu">
+					<a href="{% url 'home' %}#home" id="homepage" class="activepage">HOME</a>
+					<a href="{% url 'home' %}#about" id="aboutpage" class="">ABOUT</a>
+					<a href="{% url 'home' %}#projects" id="projectspage" class="">PROJECT</a>
+					<a href="{% url 'home' %}#codinglog" id="codinglogpage" class="">CODING LOG</a>
+					<a href="{% url 'home' %}#blog" id="blogpage" class="">POST</a>
+					<a href="{% url 'home' %}#contact" id="contactpage" class="">CONTACT</a>
+				</div>
+			</div>
+			<div id="navlogo">
+				<a href="{% url 'home' %}#home"><img src="{% static 'blog/images/logo.png' %}" alt="Logo" id="navimg"></a>
+			</div>
+		</div>
+
+		<!--------------------------- jumbotron section -->
+		<section>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
+			<div style="background-color: white; !important; padding-top: 130px; padding-left: 10%; padding-right: 10%;" class="jumbotron">
+	  			<h1 class="display-4" style="font-family: raleway; font-size: 3.5rem">Thank You!</h1>
+	  			<p class="lead" style="font-family: raleway;">Thanks for submitting your feedback and I appreciate it. It will be visible soon after I review your feedback.</p>
+	  			<hr class="my-4">
+			</div>
+
+			<div class="container" style="font-family: raleway; color: rgb(255,255,255);">
+				<p style="font-family: ralewaymedium; font-size: 2rem;">Feature Posts</p><br><br>
+        		<div class="row">
+        			{% block post %}
+						{% for post in featuredposts %}
+	          				<div class="col-md-4">
+	          					<h2 style="font-size: 1.5rem;">{{ post.title }}</h2>
+	          					<p>{{ post.shortcontent }}</p>
+								<div class="pagemore" style="padding: 0; padding-bottom: 2rem;">
+									<a href="{% url 'post' category=1 pk=post.pk slug=post.slug %}">Read more >></a>
+								</div>
+							</div>
+	          			{% endfor %}
+					{% endblock post %}
+        		</div><hr><br><br><br><br>
+			</div>
+		</section>
+
+		<div style="font-family: raleway; text-align: center; background-color: rgb(0,0,0); height: 80px;">
+			<p style="color: rgb(255,255,255); font-size: 16px; padding-top: 28px;">Code Hub Blog © {% now 'Y' %} Theme by Jade Danial</p>
+		</div>
+
+	</main>
+	<script>
+
+		window.onclick = function(event){
+
+			if(!event.target.matches("#menuimg")){
+
+				var dropdowns = document.getElementsByClassName("menucontent");
+				var i;
+
+				for(i = 0; i < dropdowns.length; i++){
+
+					var openDropdown = dropdowns[i];
+
+					if(openDropdown.classList.contains("showmenu")){
+
+						openDropdown.classList.remove("showmenu");
+
+					}
+
+				}
+
+			}
+			
+		}
+
+	</script>
+</body>
+</html>

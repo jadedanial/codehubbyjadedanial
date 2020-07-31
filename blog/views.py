@@ -206,3 +206,25 @@ def postdetail(request, category, pk, slug):
 	}
 
 	return render(request, 'blog/post.html', context)
+
+def message(request):
+
+	postcounts = Post.objects.all().count()
+
+	if postcounts > 6:
+
+		postmid = round(postcounts / 2)
+		poststart = postmid - 3
+		postend = poststart + 3
+
+	else:
+
+		poststart = 0
+		postend = 0
+
+	context = {
+		'posts': Post.objects.all().order_by('-dateposted'),
+		'featuredposts': Post.objects.all().order_by('dateposted')[poststart:postend]
+	}
+
+	return render(request, 'blog/message.html', context)
