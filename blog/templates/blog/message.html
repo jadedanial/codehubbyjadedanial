@@ -33,21 +33,19 @@
 				<div id="dropdownmenu">
 					<img src="{% static 'blog/images/menu.png' %}" alt="Menu" id="menuimg" onclick="showMenu()">
 					<div id="menuitems" class="menucontent">
-						<a href="{% url 'home' %}#home" id="homepagemenu" class="activepage">HOME</a>
-						<a href="{% url 'home' %}#about" id="aboutpagemenu" class="">ABOUT</a>
-						<a href="{% url 'home' %}#projects" id="projectspagemenu" class="">PROJECT</a>
-						<a href="{% url 'home' %}#codinglog" id="codinglogpagemenu" class="">CODING LOG</a>
-						<a href="{% url 'home' %}#blog" id="blogpagemenu" class="">POST</a>
-						<a href="{% url 'home' %}#contact" id="contactpagemenu" class="">CONTACT</a>
+						<a href="{% url 'home' %}#about" id="aboutpagemenu" class="activepage">ABOUT</a>
+						<a href="{% url 'home' %}#projects" id="projectspagemenu" class="">PROJECTS</a>
+						<a href="{% url 'home' %}#codinglog" id="codinglogpagemenu" class="">CODING LOGS</a>
+						<a href="{% url 'home' %}#blog" id="blogpagemenu" class="">POSTS</a>
+						<a href="{% url 'home' %}#contact" id="contactpagemenu" class="">CONTACTS</a>
 					 </div>
 				</div>
 				<div id="menu">
-					<a href="{% url 'home' %}#home" id="homepage" class="activepage">HOME</a>
-					<a href="{% url 'home' %}#about" id="aboutpage" class="">ABOUT</a>
-					<a href="{% url 'home' %}#projects" id="projectspage" class="">PROJECT</a>
-					<a href="{% url 'home' %}#codinglog" id="codinglogpage" class="">CODING LOG</a>
-					<a href="{% url 'home' %}#blog" id="blogpage" class="">POST</a>
-					<a href="{% url 'home' %}#contact" id="contactpage" class="">CONTACT</a>
+					<a href="{% url 'home' %}#about" id="aboutpage" class="activepage">ABOUT</a>
+					<a href="{% url 'home' %}#projects" id="projectspage" class="">PROJECTS</a>
+					<a href="{% url 'home' %}#codinglog" id="codinglogpage" class="">CODING LOGS</a>
+					<a href="{% url 'home' %}#blog" id="blogpage" class="">POSTS</a>
+					<a href="{% url 'home' %}#contact" id="contactpage" class="">CONTACTS</a>
 				</div>
 			</div>
 			<div id="navlogo">
@@ -62,11 +60,11 @@
 		
 			<div style="background-color: white; !important; padding-top: 130px; padding-left: 10%; padding-right: 10%;" class="jumbotron">
 	  			<h1 class="display-4" style="font-family: raleway; font-size: 3.5rem">Thank You!</h1>
-	  			<p class="lead" style="font-family: raleway;">Thanks for submitting your feedback and I appreciate it. It will be visible soon after I review your feedback.</p>
+	  			<p class="lead" style="font-family: raleway;">Thanks for submitting your feedback, I really appreciate it. Your feedback will be visible soon after I review it.</p>
 	  			<hr class="my-4">
 			</div>
 
-			<div class="container" style="font-family: raleway; color: rgb(255,255,255);">
+			<div class="container" style="font-family: raleway; color: rgb(255,255,255); padding-left: 50px; padding-right: 50px;">
 				<p style="font-family: ralewaymedium; font-size: 2rem;">Feature Posts</p><br><br>
         		<div class="row">
         			{% block post %}

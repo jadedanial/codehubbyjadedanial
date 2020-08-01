@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.utils import timezone
 from .models import Skill, Social, Profile, Project, ProjectView, ProjectFeedback, Log, Post, PostView, PostFeedback, SessionIPUrlKey
@@ -118,7 +118,7 @@ def projectdetail(request, category, pk, slug):
 			projectFeedback = ProjectFeedback.objects.create(project=project, guest=guest, text=text)
 			projectFeedback.save()
 
-			return HttpResponseRedirect(request.path_info + '#feedback')
+			return redirect(message)
 
 	else:
 
@@ -172,7 +172,7 @@ def postdetail(request, category, pk, slug):
 			postFeedback = PostFeedback.objects.create(post=post, guest=guest, text=text)
 			postFeedback.save()
 
-			return HttpResponseRedirect(request.path_info + '#feedback')
+			return redirect(message)
 
 	else:
 
